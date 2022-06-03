@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.59.0'
+project:
+    name: Test-Project-from-Staging
+    package:
+        name: Test-Project-from-Staging
+        api_version: '54.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/Test-Project-from-Staging/tests
+            options:
+                outputdir: robot/Test-Project-from-Staging/results
+
+    robot_testdoc:
+        options:
+            path: robot/Test-Project-from-Staging/tests
+            output: robot/Test-Project-from-Staging/doc/Test-Project-from-Staging_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
